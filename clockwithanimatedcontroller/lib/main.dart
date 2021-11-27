@@ -46,12 +46,15 @@ class _MyHomePageState extends State<MyHomePage>
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
           _ctrl.reverse();
-          _flag = false;
+          setState(() {
+            _flag = false;
+          });
         } else if (status == AnimationStatus.dismissed) {
           _ctrl.forward();
-          _flag = true;
+          setState(() {
+            _flag = true;
+          });
         }
-        setState(() {});
       });
   }
 
