@@ -42,7 +42,6 @@ class _MyHomePageState extends State<MyHomePage>
     super.initState();
 
     _ctrl = AnimationController(duration: duration, vsync: this)
-      ..addListener(() => setState(() {}))
       ..forward()
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
@@ -52,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage>
           _ctrl.forward();
           _flag = true;
         }
+        setState(() {});
       });
   }
 
